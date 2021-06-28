@@ -14,6 +14,12 @@
   hosts: lb
   remote_user: ubuntu
   become: yes
+  tasks:
+  - name: ensure nginx is at the latest version
+    yum:
+      name: nginx
+      state: latest
+  
   become_user: root
   tasks:
   - name: ensure wireshark is at the latest version
